@@ -15,8 +15,8 @@ if uploaded_file is not None:
     st.image(image, caption="アップロードされた画像", use_column_width=True)
 
     # 物体検出の実行
-    model = YOLO('best.pt')
-    results = model.predict(image,conf=0.6)
+    model = YOLO('best_231224.pt')
+    results = model.predict(image,conf=0.5)
 
     # 物体検出結果の表示
     for r in results:

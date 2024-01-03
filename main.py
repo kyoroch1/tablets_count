@@ -4,7 +4,7 @@ from PIL import Image
 
 # Streamlitアプリの設定
 st.title("薬剤カウントアプリ")
-st.write("写真中の薬剤の数をカウントします")
+st.write("写真中の薬剤の数をカウントします。左上のメニューから対象の剤型等 選択できます。")
 st.markdown('###')
 
 # サイドバーにモデル選択のセレクトボックスを作成

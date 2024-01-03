@@ -6,6 +6,9 @@ from PIL import Image
 st.title("錠剤カウントアプリ")
 st.write("任意の画像中の錠剤の数をカウントします")
 
+# サイドバーにモデル選択のセレクトボックスを作成
+count_model = st.sidebar.selectbox('数を計測する対象を選択してください', ['錠剤', '半錠'])
+
 # 画像のアップロード
 uploaded_file = st.file_uploader("画像を選択してください", type=["jpg", "jpeg", "png"])
 
@@ -15,7 +18,11 @@ if uploaded_file is not None:
     st.image(image, caption="アップロードされた画像", use_column_width=True)
 
     # 物体検出の実行
-    model = YOLO('best_231224.pt')
+    if count_model == '半錠':
+      model = YOLO('best_halfTablet_240103.pt')
+    else:
+      model = YOLO('best_231224.pt')
+    
     results = model.predict(image,conf=0.5)
 
     # 物体検出結果の表示

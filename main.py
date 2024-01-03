@@ -21,8 +21,8 @@ threshold = st.sidebar.slider(
 )
 
 # 画像のアップロード
-uploaded_file = st.file_uploader("写真を選択してください", type=["jpg", "jpeg", "png"])
-st.warning("写真には薬剤以外の物体を写さないようにしてください")
+uploaded_file = st.file_uploader("画像を選択", type=["jpg", "jpeg", "png"])
+st.warning("薬剤以外の物体が写らないようにしてください")
 
 if uploaded_file is not None:
     # 画像の表示

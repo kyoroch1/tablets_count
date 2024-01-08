@@ -5,8 +5,6 @@ from PIL import Image
 # Streamlitアプリの設定
 st.title('薬剤カウントツール')
 st.write('写真中の薬剤数をカウントします')
-st.markdown('###')
-
 
 # タブを作成
 tab_titles = ['Count', 'Settings']

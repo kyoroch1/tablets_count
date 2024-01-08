@@ -4,7 +4,7 @@ from PIL import Image
 
 # Streamlitアプリの設定
 st.title('薬剤カウントツール')
-st.write('写真中の薬剤数をカウントします')
+st.write('写真中の薬剤をカウントします')
 
 # タブを作成
 tab_titles = ['Count', 'Settings']
@@ -17,9 +17,8 @@ with tab2:
     st.markdown('###')
 
     # 検出力の閾値スライダーを作成
-    st.markdown('###')
     threshold = st.slider(
-    '検出力を設定してください（ 1 に近いほど検出しにくい）', 
+    '検出力を設定（ 1 に近いほど検出しにくい）', 
     value=0.70,
     min_value=0.3,
     max_value=1.00,
@@ -30,7 +29,7 @@ with tab2:
 with tab1:
     # 画像のアップロード
     uploaded_file = st.file_uploader("画像を選択", type=["jpg", "jpeg", "png"])
-    st.warning("薬剤以外の物体が写らないようにしてください")
+    st.warning("なるべく薬剤以外の物体が写らないようにしてください")
 
     if uploaded_file is not None:
       # 画像の表示

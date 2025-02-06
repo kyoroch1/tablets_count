@@ -13,7 +13,7 @@ tab1, tab2 = st.tabs(tab_titles)
 with tab2:    
     # モデル選択のセレクトボックスを作成
     st.markdown('###')
-    count_model = st.radio('剤型を選択', ['錠剤', '半錠'])
+    count_model = st.radio('剤型を選択', ['錠剤', '半錠','カプセル'])
     st.markdown('###')
 
     # 検出力の閾値スライダーを作成
@@ -39,6 +39,10 @@ with tab1:
       # 物体検出の実行
       if count_model == '半錠':
         model = YOLO('best_halfTablet_240103.pt')
+
+      if count_model == 'カプセル':
+        model = YOLO('capcell_e300b16_best.pt')
+
       else:
         model = YOLO('best_231224.pt')
     
